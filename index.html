@@ -2,53 +2,47 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="#" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+        <link class="switchable" rel="stylesheet" type="text/css" href="css/none.css" media="screen" />
     </head>
     <body>
-
-        <select id="css-switcher" style="float:right;">
-            <option value="none.css">None</option>
-            <option value="avenir-white.css">Avenir white</option>
-            <option value="foghorn.css">Foghorn</option>
-            <option value="geek-du-soir.css">Geek du soir</option>
-            <option value="jasonm23-dark.css">Dark</option>
-            <option value="markdown.css">Markdown</option>
-            <option value="markdown1.css">Markdown 1</option>
-            <option value="markdown2.css">Markdown 2</option>
-            <option value="markdown3.css">Markdown 3</option>
-            <option value="markdown4.css">Markdown 4</option>
-            <option value="markdown5.css">Markdown 5</option>
-            <option value="markdown6.css">Markdown 6</option>
-            <option value="markdown7.css">Markdown 7</option>
-            <option value="markdown8.css">Markdown 8</option>
-            <option value="markdown9.css">Markdown 9</option>
-            <option value="markdown10.css">Markdown 10</option>
-            <option value="markdown-alt.css">Markdown Alt</option>
-            <option value="markedapp-byword.css">Markedapp byword</option>
-            <option value="screen.css">Screen</option>
-            <option value="swiss.css">Swiss</option>
-            <option value="thomasf-solarizedcssdark.css">Solarized dark</option>
-            <option value="thomasf-solarizedcsslight.css">Solarized light</option>
-        </select>
-
-        <div id="resume" style="width:800px;"></div>
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="http://pagedown.googlecode.com/hg/Markdown.Converter.js"></script>
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $.get('/gh_resume/resume.md', function(content) {
-                    var converter = new Markdown.Converter();
-                    $('#resume').html(converter.makeHtml(content));
-                });
-
-                $("#css-switcher").change(function() {
-                    $("link").attr("href",'/gh_resume/css/'+$(this).val());
-                    return false;
-                });
-
-            });
-        </script>
+        <a href="https://github.com/fmagnan/gh_resume">
+            <img class="fork-me" src="img/forkme.png" alt="Fork me on GitHub">
+        </a>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <ul class="nav pull-left">
+                    <li class="dropdown">
+                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Select Your Theme <b class="caret"></b></a>
+                        <ul id="theme-list" class="dropdown-menu css-switcher" role="button">
+                            <li><a href="#" rel="avenir-white.css">Avenir white</a></li>
+                            <li><a href="#" rel="foghorn.css">Foghorn</a></li>
+                            <li><a href="#" rel="geek-du-soir.css">Geek du soir</a></li>
+                            <li><a href="#" rel="jasonm23-dark.css">Dark</a></li>
+                            <li><a href="#" rel="markdown.css">Markdown</a></li>
+                            <li><a href="#" rel="markdown1.css">Markdown 1</a></li>
+                            <li><a href="#" rel="markdown3.css">Markdown 3</a></li>
+                            <li><a href="#" rel="markdown5.css">Markdown 5</a></li>
+                            <li><a href="#" rel="markdown6.css">Markdown 6</a></li>
+                            <li><a href="#" rel="markdown7.css">Markdown 7</a></li>
+                            <li><a href="#" rel="markdown8.css">Markdown 8</a></li>
+                            <li><a href="#" rel="markdown9.css">Markdown 9</a></li>
+                            <li><a href="#" rel="markdown10.css">Markdown 10</a></li>
+                            <li><a href="#" rel="markdown-alt.css">Markdown Alt</a></li>
+                            <li><a href="#" rel="markedapp-byword.css">Markedapp byword</a></li>
+                            <li><a href="#" rel="screen.css">Screen</a></li>
+                            <li><a href="#" rel="swiss.css">Swiss</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content"></div>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="http://pagedown.googlecode.com/hg/Markdown.Converter.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
