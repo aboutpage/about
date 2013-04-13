@@ -1,0 +1,44 @@
+body {
+    max-width: 900px;
+    margin: 0 auto ;
+    color: #4a4a4a;
+    background: #222;
+}
+
+blockquote{
+    background: #F7F7F7;
+    padding: 10px;
+    font-size: 90%;
+    line-height: 130%;
+}
+
+*{
+    font-family: arial, serif;
+}
+
+p{
+    text-align: justify;
+}
+
+h1{
+    font-size: 2.5em;
+}
+
+h2{
+    border-bottom: 1px solid #E0E0E0!important;
+}
+
+h2, h3{
+    padding:20px 0 0 0;
+
+}
+
+h3{
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+#content{
+    background-color:white;
+    padding: 10px 50px ;
+}

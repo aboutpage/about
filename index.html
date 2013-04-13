@@ -2,11 +2,39 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="#" media="screen" />
     </head>
     <body>
-        <div id="resume" style="width:800px;border:1px dotted grey;padding:12px;"></div>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="http://pagedown.googlecode.com/hg/Markdown.Converter.js"></script>
+
+        <select id="css-switcher" style="float:right;">
+            <option value="none.css">None</option>
+            <option value="avenir-white.css">Avenir white</option>
+            <option value="foghorn.css">Foghorn</option>
+            <option value="geek-du-soir.css">Geek du soir</option>
+            <option value="jasonm23-dark.css">Dark</option>
+            <option value="markdown.css">Markdown</option>
+            <option value="markdown1.css">Markdown 1</option>
+            <option value="markdown2.css">Markdown 2</option>
+            <option value="markdown3.css">Markdown 3</option>
+            <option value="markdown4.css">Markdown 4</option>
+            <option value="markdown5.css">Markdown 5</option>
+            <option value="markdown6.css">Markdown 6</option>
+            <option value="markdown7.css">Markdown 7</option>
+            <option value="markdown8.css">Markdown 8</option>
+            <option value="markdown9.css">Markdown 9</option>
+            <option value="markdown10.css">Markdown 10</option>
+            <option value="markdown-alt.css">Markdown Alt</option>
+            <option value="markedapp-byword.css">Markedapp byword</option>
+            <option value="screen.css">Screen</option>
+            <option value="swiss.css">Swiss</option>
+            <option value="thomasf-solarizedcssdark.css">Solarized dark</option>
+            <option value="thomasf-solarizedcsslight.css">Solarized light</option>
+        </select>
+
+        <div id="resume" style="width:800px;"></div>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://pagedown.googlecode.com/hg/Markdown.Converter.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {
@@ -14,6 +42,12 @@
                     var converter = new Markdown.Converter();
                     $('#resume').html(converter.makeHtml(content));
                 });
+
+                $("#css-switcher").change(function() {
+                    $("link").attr("href",'/gh_resume/css/'+$(this).val());
+                    return false;
+                });
+
             });
         </script>
     </body>
