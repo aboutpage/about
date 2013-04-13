@@ -1,10 +1,20 @@
-<html>
-<head>
-</head>
-<body>
-<h1>Home</h1>
-<p>
-	got to my <a href='resume.html'>resume</a>
-</p>
-</body>
+<!DOCTYPE html>
+<html lan="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="resume"></div>
+        <script type="text/javascript" src="js/all"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+                $.get('resume.md', function(content) {
+                    var converter = new Markdown.Converter();
+                    $('resume').innerHTML=converter.makeHtml(content);
+                });
+            });
+        </script>
+
+    </body>
 </html>
