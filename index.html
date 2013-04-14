@@ -2,47 +2,66 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
-        <link class="switchable" rel="stylesheet" type="text/css" href="css/none.css" media="screen" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/none.css"  class="switchable" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/jquery.dropdown.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     </head>
     <body>
         <a href="https://github.com/fmagnan/gh_resume">
             <img class="fork-me" src="img/forkme.png" alt="Fork me on GitHub">
         </a>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <ul class="nav pull-left">
-                    <li class="dropdown">
-                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Select Your Theme <b class="caret"></b></a>
-                        <ul id="theme-list" class="dropdown-menu css-switcher" role="button">
-                            <li><a href="#" rel="avenir-white.css">Avenir white</a></li>
-                            <li><a href="#" rel="foghorn.css">Foghorn</a></li>
-                            <li><a href="#" rel="geek-du-soir.css">Geek du soir</a></li>
-                            <li><a href="#" rel="jasonm23-dark.css">Dark</a></li>
-                            <li><a href="#" rel="markdown.css">Markdown</a></li>
-                            <li><a href="#" rel="markdown1.css">Markdown 1</a></li>
-                            <li><a href="#" rel="markdown3.css">Markdown 3</a></li>
-                            <li><a href="#" rel="markdown5.css">Markdown 5</a></li>
-                            <li><a href="#" rel="markdown6.css">Markdown 6</a></li>
-                            <li><a href="#" rel="markdown7.css">Markdown 7</a></li>
-                            <li><a href="#" rel="markdown8.css">Markdown 8</a></li>
-                            <li><a href="#" rel="markdown9.css">Markdown 9</a></li>
-                            <li><a href="#" rel="markdown10.css">Markdown 10</a></li>
-                            <li><a href="#" rel="markdown-alt.css">Markdown Alt</a></li>
-                            <li><a href="#" rel="markedapp-byword.css">Markedapp byword</a></li>
-                            <li><a href="#" rel="screen.css">Screen</a></li>
-                            <li><a href="#" rel="swiss.css">Swiss</a></li>
-                        </ul>
-                    </li>
+        <div class="menu">
+            <a class="project" href="/">Resume</a>
+            <span data-dropdown="#dropdown-theme">Theme</span>
+            <div id="dropdown-theme" class="dropdown dropdown-tip">
+                <ul class="dropdown-menu css-switcher">
+                    <li><a rel="avenir-white.css">Avenir white</a></li>
+                    <li><a rel="foghorn.css">Foghorn</a></li>
+                    <li><a rel="geek-du-soir.css">Geek du soir</a></li>
+                    <li><a rel="jasonm23-dark.css">Dark</a></li>
+                    <li><a rel="markdown.css">Markdown</a></li>
+                    <li><a rel="markdown5.css">Markdown 5</a></li>
+                    <li><a rel="markdown7.css">Markdown 7</a></li>
+                    <li><a rel="markdown8.css">Markdown 8</a></li>
+                    <li><a rel="markdown9.css">Markdown 9</a></li>
+                    <li><a rel="markdown10.css">Markdown 10</a></li>
+                    <li><a rel="markdown-alt.css">Markdown Alt</a></li>
+                    <li><a rel="markedapp-byword.css">Markedapp byword</a></li>
+                    <li><a rel="screen.css">Screen</a></li>
+                    <li><a rel="swiss.css">Swiss</a></li>
+                </ul>
+            </div>
+            <span data-dropdown="#dropdown-language" class="language-menu" style="display:none;">Language</span>
+            <div id="dropdown-language" class="dropdown dropdown-tip">
+                <ul class="dropdown-menu">
+                    <li><a rel="resume.md">Default</a></li>
+                </ul>
+            </div>
+            <span data-dropdown="#dropdown-utilities" style="display:none;">Utilities</span>
+            <div id="dropdown-utilities" class="dropdown dropdown-tip">
+                <ul class="dropdown-menu">
+                    <li><a class="export2pdf" rel="pdf">Export to pdf</a></li>
                 </ul>
             </div>
         </div>
-        <div class="content"></div>
+        <div class="resume"></div>
+        <script type="text/javascript" src="http://pagedown.googlecode.com/hg/Markdown.Converter.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="js/jquery.cookie.js"></script>
-        <script type="text/javascript" src="http://pagedown.googlecode.com/hg/Markdown.Converter.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jquery.dropdown.js"></script>
+        <script type="text/javascript" src="js/BlobBuilder.js"></script>
+        <script type="text/javascript" src="js/adler32cs.js"></script>
+        <script type="text/javascript" src="js/FileSaver.js"></script>
+        <script type="text/javascript" src="js/deflate.js"></script>
+        <script type="text/javascript" src="js/jspdf.js"></script>
+        <script type="text/javascript" src="js/jspdf.plugin.from_html.js"></script>
+        <script type="text/javascript" src="js/jspdf.plugin.addimage.js"></script>
+        <script type="text/javascript" src="js/jspdf.plugin.cell.js"></script>
+        <script type="text/javascript" src="js/jspdf.plugin.ie_below_9_shim.js"></script>
+        <script type="text/javascript" src="js/jspdf.plugin.javascript.js"></script>
+        <script type="text/javascript" src="js/jspdf.plugin.sillysvgrenderer.js"></script>
+        <script type="text/javascript" src="js/jspdf.plugin.split_text_to_size.js"></script>
+        <script type="text/javascript" src="js/jspdf.plugin.standard_fonts_metrics.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>

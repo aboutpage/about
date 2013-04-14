@@ -1,13 +1,52 @@
 .fork-me {
-    position:absolute;
-    top:45px;
+    position:fixed;
+    top:30px;
     right:0;
     border:0;
 }
-
-.content {
-    margin-top:45px;
+body.without-menu .fork-me {
+    top:0;
 }
-
+.menu {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:20px;
+    padding: 10px 10px 11px;
+    background-image:-moz-linear-gradient(center top , #444444 0%, #333333 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#444),color-stop(100%,#333));
+}
+body.without-menu .menu {
+    display:none;
+}
+.project {
+    color:white;
+    font-size:1.2em;
+    text-decoration:none;
+}
+.menu span {
+    color: #999999;
+    float: none;
+    line-height: 19px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    cursor:pointer;
+    margin-left:30px;
+}
+.menu span:after {
+    content:"↓";
+}
+.dropdown .dropdown-menu LI > A:hover,
+.dropdown .dropdown-menu LABEL:hover {
+    background-image:-moz-linear-gradient(center top , #444444 0%, #333333 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#444),color-stop(100%,#333));
+}
+.resume {
+  margin-top:45px;
+}
+body.without-menu .resume {
+    margin-top:0;
+}
 
 
