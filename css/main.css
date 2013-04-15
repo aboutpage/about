@@ -1,13 +1,41 @@
 .fork-me {
-    position:fixed;
-    top:30px;
+    position:absolute;
+    top:0;
     right:0;
     border:0;
 }
-body.without-menu .fork-me {
-    top:0;
+body.with-toolbar .fork-me {
+    top:30px;
 }
-.menu {
+.avatar {
+    position:absolute;
+    top:10px;
+    right:160px;
+    border:0;
+}
+body.with-toolbar .avatar {
+    top:50px;
+}
+.languages {
+    position:absolute;
+    top:150px;
+    right:0;
+    width:149px;
+    height:60px;
+}
+.languages a {
+    float:left;
+    margin-left:10px;
+    cursor:pointer;
+}
+body.with-toolbar .languages {
+    top:180px;
+}
+.toolbar {
+    display:none;
+    z-index: 999;
+}
+body.with-toolbar .toolbar {
     position:fixed;
     top:0;
     left:0;
@@ -16,16 +44,14 @@ body.without-menu .fork-me {
     padding: 10px 10px 11px;
     background-image:-moz-linear-gradient(center top , #444444 0%, #333333 100%);
     background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#444),color-stop(100%,#333));
-}
-body.without-menu .menu {
-    display:none;
+    display:block;
 }
 .project {
     color:white;
     font-size:1.2em;
     text-decoration:none;
 }
-.menu span {
+.toolbar span {
     color: #999999;
     float: none;
     line-height: 19px;
@@ -34,7 +60,7 @@ body.without-menu .menu {
     cursor:pointer;
     margin-left:30px;
 }
-.menu span:after {
+.toolbar span:after {
     content:"↓";
 }
 .dropdown .dropdown-menu LI > A:hover,
@@ -42,11 +68,8 @@ body.without-menu .menu {
     background-image:-moz-linear-gradient(center top , #444444 0%, #333333 100%);
     background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#444),color-stop(100%,#333));
 }
-.resume {
-  margin-top:45px;
-}
-body.without-menu .resume {
-    margin-top:0;
+body.with-toolbar .resume {
+    margin-top:45px;
 }
 
 

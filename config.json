@@ -1,0 +1,9 @@
+{
+    "theme": "markdown8",
+    "languages": {
+        "gb": "English",
+        "fr": "French"
+    },
+    "defaultLanguage": "fr",
+    "isToolbarEnabled": false
+}

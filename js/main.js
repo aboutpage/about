@@ -1,8 +1,3 @@
-$.getParamFromUrl = function(name){
-    var results = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
-    return (results && results[1]) || null;
-}
-
 isFileExists = function(url) {
     var http = new XMLHttpRequest();
     http.open('HEAD', url, false);
@@ -10,75 +5,63 @@ isFileExists = function(url) {
     return http.status!=404;
 }
 
-updateResume = function(url) {
-    $.get(url, function(content) {
+updateResume = function(language) {
+    $.get('resume_'+language+'.md', function(content) {
         var converter = new Markdown.Converter();
         $('.resume').html(converter.makeHtml(content));
     });
 }
+
+applyTheme = function(name) {
+    $(".switchable").attr("href",'css/themes/'+name+'.css');
+}
+
+isSet = function(property) {
+    return typeof(property)!='undefined';
+}
+
+isArray = function(property) {
+    return Object.prototype.toString.call( property ) === '[object Array]';
+}
+
+updatePhoto = function(username,size) {
+    $.getJSON('https://api.github.com/users/' + username,function(data) {
+        $('.avatar').attr('src','https://secure.gravatar.com/avatar/'+data.gravatar_id+'?s='+size);
+    });
+}
+
 $(document).ready(function() {
 
-    selectedTheme=$.getParamFromUrl('theme');
-    if(selectedTheme){
-        $(".switchable").attr("href",'css/'+selectedTheme);
-        $('body').addClass('without-menu');
-    }
-    else if($.cookie("css")) {
-        $(".switchable").attr("href",$.cookie("css"));
-    }
-    $.get('resume.md', function(content) {
-        var converter = new Markdown.Converter();
-        $('.resume').html(converter.makeHtml(content));
+    $.getJSON('config.json', function(data) {
+
+        if(isSet(data.theme)) {
+            applyTheme(data.theme);
+        }
+        if(isSet(data.isToolbarEnabled)&&data.isToolbarEnabled==true){
+            $('body').addClass('with-toolbar');
+        }
+        if(isSet(data.languages)){
+            $.each(data.languages, function(key, val) {
+                flag='<img src="img/flags/'+key+'.png" alt="'+val+'" />';
+                languageLink='<a rel="'+key+'">'+flag+'</a>';
+                $('.languages').append(languageLink);
+            });
+        }
+        if(isSet(data.defaultLanguage)){
+            updateResume(data.defaultLanguage);
+        }
+        updatePhoto('fmagnan',210);
     });
 
-    updateResume('resume.md');
-
     $(".css-switcher li a").click(function() {
-        newCss='css/'+$(this).attr('rel');
-        $(".switchable").attr("href",newCss);
-        $.cookie("css",newCss, {expires: 365, path: '/'});
+        applyTheme($(this).attr('rel'));
         return false;
     });
 
-    $('#dropdown-language ul').delegate('a', 'click', function () {
+    $('.languages').delegate('a', 'click', function () {
         updateResume($(this).attr('rel'));
         return false;
     });
 
-    $(".export2pdf").click(function() {
-        var pdf = new jsPDF('p', 'in', 'letter')
-            , source = $('.resume')[0]
-            , specialElementHandlers = {
-                '#bypassme': function(element, renderer){
-                    return true
-                }
-            }
-
-        pdf.fromHTML(
-            source // HTML string or DOM elem ref.
-            , 0.5 // x coord
-            , 0.5 // y coord
-            , {
-                'width':7.5 // max width of content on PDF
-                , 'elementHandlers': specialElementHandlers
-            }
-        );
-
-        pdf.save('resume.pdf');
-        return false;
-    });
-    var displayLanguages=false;
-    var availableLanguages=['en'];
-    for(i=0;i<availableLanguages.length;i++){
-        languageCode=availableLanguages[i];
-        languageFile='resume_'+languageCode+'.md';
-        if(isFileExists(languageFile)){
-            $("#dropdown-language ul").append('<li><a rel="'+languageFile+'">'+languageCode+'</a></li>');
-            displayLanguages=true;
-        }
-    }
-    if(displayLanguages){
-        $('.language-menu').show();
-    }
 });
 
