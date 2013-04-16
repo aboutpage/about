@@ -1,12 +1,5 @@
-isFileExists = function(url) {
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
-    return http.status!=404;
-}
-
-updateResume = function(language) {
-    $.get('resume_'+language+'.md', function(content) {
+updateResume = function(file) {
+    $.get(file, function(content) {
         var converter = new Markdown.Converter();
         $('.resume').html(converter.makeHtml(content));
     });
@@ -24,16 +17,18 @@ isArray = function(property) {
     return Object.prototype.toString.call( property ) === '[object Array]';
 }
 
-updatePhoto = function(username,size) {
+updateAvatar = function(username,size) {
     $.getJSON('https://api.github.com/users/' + username,function(data) {
         $('.avatar').attr('src','https://secure.gravatar.com/avatar/'+data.gravatar_id+'?s='+size);
     });
 }
 
+getUsernameFromHost = function() {
+    return document.location.hostname.split('.')[0];
+}
+
 $(document).ready(function() {
-
     $.getJSON('config.json', function(data) {
-
         if(isSet(data.theme)) {
             applyTheme(data.theme);
         }
@@ -41,19 +36,23 @@ $(document).ready(function() {
             $('body').addClass('with-toolbar');
         }
         if(isSet(data.languages)){
-            $.each(data.languages, function(key, val) {
-                flag='<img src="img/flags/'+key+'.png" alt="'+val+'" />';
-                languageLink='<a rel="'+key+'">'+flag+'</a>';
-                $('.languages').append(languageLink);
+            translations=[];
+            $.each(data.languages, function(index,value) {
+                image='<img src="img/flags/'+value['flag']+'" alt="'+value['label']+'" />';
+                anchor='<a rel="'+value['file']+'" title="'+value['label']+'">'+image+'</a>';
+                translations.push(anchor);
             });
+            if(translations.length>1) {
+                $('.languages').append(translations.join("\n"));
+            }
+            updateResume(data.languages[0]['file']);
         }
-        if(isSet(data.defaultLanguage)){
-            updateResume(data.defaultLanguage);
+        if(isSet(data.avatarSize)) {
+            updateAvatar(getUsernameFromHost(),data.avatarSize);
         }
-        updatePhoto('fmagnan',210);
     });
 
-    $(".css-switcher li a").click(function() {
+    $('.css-switcher li a').click(function() {
         applyTheme($(this).attr('rel'));
         return false;
     });

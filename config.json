@@ -1,9 +1,18 @@
 {
     "theme": "markdown8",
-    "languages": {
-        "gb": "English",
-        "fr": "French"
-    },
-    "defaultLanguage": "fr",
+    "languages":
+    [
+        {
+            "flag": "fr.png",
+            "label": "Français",
+            "file": "resume.md"
+        },
+        {
+            "flag": "gb.png",
+            "label": "English",
+            "file": "resume_in_english.md"
+        }
+    ],
+    "avatarSize": 210,
     "isToolbarEnabled": false
 }
