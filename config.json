@@ -3,16 +3,15 @@
     "languages":
     [
         {
-            "flag": "fr.png",
-            "label": "Français",
-            "file": "resume.md"
-        },
-        {
             "flag": "gb.png",
             "label": "English",
-            "file": "resume_in_english.md"
+            "file": "sample_in_english.md"
+        },
+        {
+            "flag": "fr.png",
+            "label": "Français",
+            "file": "sample.md"
         }
     ],
-    "avatarSize": 210,
-    "isToolbarEnabled": false
+    "isToolbarEnabled": true
 }
