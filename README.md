@@ -1,7 +1,11 @@
+My about page in github pages style
+===================================
+
+Master branch contains only README.md file.
+
+soon, there will be a documentation but for now, it's just a markdown with GitHub flavor.
 
 
-GitHub Flavored Markdown
-================================
 
 *View the [source of this content](http://github.github.com/github-flavored-markdown/sample_content.html).*
 

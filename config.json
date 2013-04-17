@@ -1,16 +1,16 @@
 {
-    "theme": "markdown8",
+    "theme": "foghorn",
     "languages":
     [
         {
             "flag": "gb.png",
             "label": "English",
-            "file": "sample_in_english.md"
+            "file": "README.md"
         },
         {
             "flag": "fr.png",
             "label": "Français",
-            "file": "sample.md"
+            "file": "LISEZMOI.md"
         }
     ],
     "isToolbarEnabled": true
