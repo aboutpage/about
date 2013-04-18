@@ -1,5 +1,6 @@
 {
-    "theme": "foghorn",
+    "avatarSize": 200,
+    "isToolbarEnabled": true,
     "languages":
     [
         {
@@ -13,5 +14,5 @@
             "file": "LISEZMOI.md"
         }
     ],
-    "isToolbarEnabled": true
+    "theme": "foghorn"
 }

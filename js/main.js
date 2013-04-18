@@ -1,3 +1,10 @@
+addAvatar = function(username,size) {
+    $.getJSON('https://api.github.com/users/' + username,function(data) {
+        imageSrc='https://secure.gravatar.com/avatar/'+data.gravatar_id+'?s='+size;
+        $('.project-anchor').append('<img class="avatar" src="'+imageSrc+'" />');
+    });
+}
+
 applyTheme = function(name) {
     $(".switchable").attr("href",'css/themes/'+name+'.css');
 }
@@ -10,7 +17,7 @@ handleAvatar = function(data) {
     if(!isSet(data.avatarSize)) {
         return false;
     }
-    updateAvatar(getUsernameFromHost(),data.avatarSize);
+    addAvatar(getUsernameFromHost(),data.avatarSize);
 }
 
 handleFlags = function(data) {
@@ -57,6 +64,24 @@ handleToolbar = function(data) {
     });
 }
 
+initMarked = function() {
+    marked.setOptions({
+        gfm: true,
+        tables: true,
+        breaks: false,
+        pedantic: false,
+        sanitize: true,
+        smartLists: true,
+        langPrefix: 'language-',
+        highlight: function(code, lang) {
+            if (lang === 'js') {
+                return highlighter.javascript(code);
+            }
+            return code;
+        }
+    });
+}
+
 isArray = function(property) {
     return Object.prototype.toString.call( property ) === '[object Array]';
 }
@@ -65,20 +90,14 @@ isSet = function(property) {
     return typeof(property)!='undefined';
 }
 
-updateAvatar = function(username,size) {
-    $.getJSON('https://api.github.com/users/' + username,function(data) {
-        $('.avatar').attr('src','https://secure.gravatar.com/avatar/'+data.gravatar_id+'?s='+size);
-    });
-}
-
 updateResume = function(file) {
     $.get(file, function(content) {
-        var converter = new Markdown.Converter();
-        $('.resume').html(converter.makeHtml(content));
+        $('.resume').html(marked.parser(marked.lexer(content)));
     });
 }
 
 $(document).ready(function() {
+    initMarked();
     $.getJSON('config.json', function(data) {
         handleTheme(data);
         handleToolbar(data);
