@@ -39,7 +39,8 @@ handleFlags = function(data) {
 
     $('.languages').delegate('a', 'click', function () {
         updateResume($(this).attr('rel'));
-        $('.languages a').toggle();
+        $('.languages a').show();
+        $(this).hide();
         return false;
     });
 }
