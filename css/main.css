@@ -18,10 +18,8 @@ body.with-toolbar .avatar {
 }
 .languages {
     position:absolute;
-    top:150px;
-    right:0;
-    width:149px;
-    height:60px;
+    top:10px;
+    left:10px;
 }
 .languages a {
     float:left;
@@ -29,7 +27,7 @@ body.with-toolbar .avatar {
     cursor:pointer;
 }
 body.with-toolbar .languages {
-    top:180px;
+    top:50px;
 }
 .toolbar {
     display:none;
