@@ -89,6 +89,7 @@ La configuration des traductions ressemble à ça :
 }
 ```
 Chaque entrée comporte 3 informations :
+
   * le nom du fichier image à utiliser pour afficher le drapeau de la langue (vous pouvez aller jeter un oeil dans
   le dossier img/flags pour avoir une idée du nombre de drapeaux disponibles)
   * le label qui apparaîtra lors du survol du drapeau avec la souris (la balise title du lien)
@@ -98,9 +99,25 @@ Pour que les drapeaux s'affichent, il faut que la liste des langues contiennent 
 affichera toujours le premier élément lors de son premier chargement.
 
 ## Profiter des nouvelles fonctionnalités de la page _à propos_
-_en cours_
+Toujours en utilisant uniquement l'interface de [GitHub] [github], il est possible de mettre à jour son référentiel à partir
+du référentiel de aboutpage pour profiter des nouvelles fonctionnalités et autres améliorations.
+
+Le protocole à suivre est le suivant :
+
+  * se rendre sur la page de son projet, par exemple https://github.com/fmagnan/about
+  * cliquer sur le menu _pull request_ qui amène sur la page https://github.com/fmagnan/about/pull/new/gh-pages
+  * là, plutôt que de proposer une pull request au projet [aboutpage] [aboutpage], on va inverser les rôles pour
+  que notre référentiel recoive les nouveautés du référentiel [aboutpage] [aboutpage]
+  * il faut donc sélectionner à gauche son référentiel et à droite le référentiel [aboutpage] [aboutpage]
+  * lancer la pull request
 
 ## Crédits
-_en cours_
+
+  * icônes provenant de [Mark James] [famfamfam]
+  * menu déroulant issu du travail de [Cory LaViska] [dropdown]
+  * thèmes récupérés par-ci par-là (je n'ai pas trouvé les auteurs)
 
 [github]: https://github.com
+[famfamfam]: http://www.famfamfam.com
+[dropdown]: http://labs.abeautifulsite.net/jquery-dropdown/
+[aboutpage]: https://github.com/aboutpage/about

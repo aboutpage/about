@@ -4,14 +4,14 @@
     "languages":
     [
         {
-            "flag": "fr.png",
-            "label": "Français",
-            "file": "LISEZMOI.md"
-        },
-        {
             "flag": "gb.png",
             "label": "English",
             "file": "README.md"
+        },
+        {
+            "flag": "fr.png",
+            "label": "Français",
+            "file": "LISEZMOI.md"
         },
         {
             "flag": "de.png",
