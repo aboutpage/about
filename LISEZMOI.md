@@ -16,7 +16,7 @@ Voici la marche à suivre pour parvenir à vos fins :
 
 1. commencez par forker ce projet pour obtenir votre propre dépôt. Cette simple action va publier une page à l'adresse
 http://username.github.io/about qui contiendra le texte que vous êtes en train de lire.
-2. tout en restant dans la branche principale (la branche __gh_pages__), vous pouvez créer un nouveau fichier au format
+2. tout en restant dans la branche principale (la branche __gh-pages__), vous pouvez créer un nouveau fichier au format
 markdown que vous appelerez comme bon vous semble (about.md, resume.md, cv.md ...). L'éditeur de [GitHub] [github]
 vous permettra de mettre en forme votre document.
 3. quand votre document est créé, il vous suffit de modifier la configuration par défaut pour que le contenu de votre
