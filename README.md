@@ -13,13 +13,13 @@ If you want to try it, simply fork it and that's it!
 
   1. at the beginning, you have to fork this project and get your own repository. When the fork is finished, you can
   read this text at http://username.github.io/about (username is YOUR username on [GitHub] [github]).
-  2. nos __master__ branch is defined is this project. The main branch is the __gh_pages__ branch, which help you to
+  2. no __master__ branch is defined in this project. The main branch is the __gh-pages__ branch, which helps you to
   have content directly online. You can now create a new file to write your text. Be careful, the file must be in
   markdown format. You can use [GitHub flavored markdowwn] [gfm] if you want). Put whatever you want in the file name
   (about.md, resume.md, cv.md ...). You can edit the file directly with [GitHub] [github].
   3. when you're done, you can take a look at configuration file to choose your own options. Here it is a minimal
   configuration you can try for the first time to rapidly have a visual result (in my example, I supposed you've create
-  a file named __resume.md__). The following code must replace __config.json__ content :
+  a file named __resume.md__). The following code must replace __config.json__ content:
   ```json
   {
       "avatarSize": 210,
@@ -47,10 +47,10 @@ If you want to display your avatar, choose a width and use:
 "avatarSize": 210
 ```
 The value is the width you want your avatar takes in page. Remember avatar is a square with width equal to height. If
-you don't want to show your avatar, you can delete this ligne in __config.json__.
+you don't want to show your avatar, you can delete this line in __config.json__.
 
 ### Choose a theme
-Several themes are available (wants to add your theme, pull me a request, you're welcome!)
+Several themes are available (want to add your theme, pull me a request, you're welcome!)
 _about_ page will use defined theme:
 ```json
 "theme": "colored"
@@ -91,7 +91,7 @@ i18n configuration looks like that:
 Each entry has 3 data:
 
   * image file name to use to display flag (you can take a look to img/flags to know how many languages are available,
-  you will find a lot of them.
+  you will find a lot of them).
   * label you want to display when mouse is over flag (the title attribute for anchor)
   * markdown file you want to read
 
